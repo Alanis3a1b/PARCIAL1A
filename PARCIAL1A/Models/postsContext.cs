@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 namespace PARCIAL1A.Models
 {
 
-    public class autoresContext : DbContext
+    public class postsContext : DbContext
     {
-        public autoresContext(DbContextOptions<autoresContext> options) : base(options)
+        public postsContext(DbContextOptions<autoresContext> options) : base(options)
         {
         }
     }
