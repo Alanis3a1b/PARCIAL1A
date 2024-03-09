@@ -9,5 +9,7 @@ namespace PARCIAL1A.Models
         public postsContext(DbContextOptions<autoresContext> options) : base(options)
         {
         }
+        public DbSet<Posts> posts { get; set; }
+
     }
 }
