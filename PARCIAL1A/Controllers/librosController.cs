@@ -93,5 +93,26 @@ namespace PARCIAL1A.Controllers
             return Ok(libroModificar);
 
         }
+
+
+        /*Método para eliminar registros*/
+        [HttpPut]
+        [Route("Eliminar/{id}")]
+        public IActionResult EliminarLibro(int id)
+        {
+            Libros? Libro = (from e in _librosContext.libros
+                                        where e.id_libros == id
+                                        select e).FirstOrDefault();
+
+            if (Libro == null)
+            { return NotFound(); }
+
+            _librosContext.libros.Attach(Libro);
+            _librosContext.libros.Remove(Libro);
+            _librosContext.SaveChanges();
+
+            return Ok(Libro);
+
+        }
     }
 }
