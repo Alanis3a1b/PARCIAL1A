@@ -39,7 +39,7 @@ namespace PARCIAL1A.Controllers
 
         public IActionResult Get(int id)
         {
-            Autores autor = (from e in _autoresContexto.autores
+            Autores? autor = (from e in _autoresContexto.autores
                              where e.id_autores == id
                              select e).FirstOrDefault();
 
@@ -76,7 +76,7 @@ namespace PARCIAL1A.Controllers
 
         public IActionResult ActualizarAutor(int id, [FromBody] Autores autorModificar)
         {
-            Autores autorActual = (from e in _autoresContexto.autores
+            Autores? autorActual = (from e in _autoresContexto.autores
                                      where e.id_autores == id
                                      select e).FirstOrDefault();
 
@@ -98,7 +98,7 @@ namespace PARCIAL1A.Controllers
         [Route("Eliminar/{id}")]
         public IActionResult EliminarAutores(int id)
         {
-            Autores autores = (from e in _autoresContexto.autores
+            Autores? autores = (from e in _autoresContexto.autores
                                where e.id_autores == id
                                select e).FirstOrDefault();
 

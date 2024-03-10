@@ -12,6 +12,6 @@ namespace PARCIAL1A.Models
         public DbSet<Libros> libros { get; set; }
         public DbSet<Autores> autores { get; set; }
         public DbSet<Posts> posts { get; set; }
-        public DbSet<Autor_libro> estados_equipo { get; set; }
+        public DbSet<Autor_libro> autor_libro { get; set; }
     }
 }
