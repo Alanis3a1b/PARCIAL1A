@@ -39,7 +39,7 @@ namespace PARCIAL1A.Controllers
 
         public IActionResult Get(int id)
         {
-            Libros libro = (from e in _librosContext.libros
+            Libros? libro = (from e in _librosContext.libros
                              where e.id_libros == id
                              select e).FirstOrDefault();
 
@@ -72,26 +72,26 @@ namespace PARCIAL1A.Controllers
         }
 
         //Método para modificar los registros de la tabla
-        //[HttpPut]
-        //[Route("Actualizar/{id}")]
+        [HttpPut]
+        [Route("Actualizar/{id}")]
 
-        //public IActionResult ActualizarLibros(int id, [FromBody] Libros libroModificar)
-        //{
-        //    Libros libroActual = (from e in _librosContext.Libros
-        //                           where e.id_libros == id
-        //                           select e).FirstOrDefault();
+        public IActionResult ActualizarLibros(int id, [FromBody] Libros libroModificar)
+        {
+            Libros? libroActual = (from e in _librosContext.libros
+                                  where e.id_libros == id
+                                  select e).FirstOrDefault();
 
-        //    if (libroActual == null)
-        //    { return NotFound(); }
+            if (libroActual == null)
+            { return NotFound(); }
 
-        //    libroActual.nombre_autores = libroModificar.nombre_autores;
+            libroActual.titulo_libros = libroModificar.titulo_libros;
 
 
-        //    _autoresContexto.Entry(autorActual).State = EntityState.Modified;
-        //    _autoresContexto.SaveChanges();
+            _librosContext.Entry(libroActual).State = EntityState.Modified;
+            _librosContext.SaveChanges();
 
-        //    return Ok(autorModificar);
+            return Ok(libroModificar);
 
-        //}
+        }
     }
 }
