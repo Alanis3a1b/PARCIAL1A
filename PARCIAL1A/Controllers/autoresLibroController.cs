@@ -63,7 +63,7 @@ namespace PARCIAL1A.Controllers
                                         on e.id_autores equals a.id_autores
                                  join l in _autorLibroContext.libros
                                         on e.id_libros equals l.id_libros
-                                 where a.nombre_autores.Contains(nombre)
+                                 where a.nombre_autores == nombre
                                  select new
                                  {
                                      e.id_autores,
