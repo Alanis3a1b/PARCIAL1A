@@ -22,15 +22,15 @@ namespace PARCIAL1A.Controllers
 
         public IActionResult Get()
         {
-            List<Autores> listadoEquipo = (from e in _autoresContexto.autores
+            List<Autores> listadoAutores = (from e in _autoresContexto.autores
                                            select e).ToList();
 
-            if (listadoEquipo.Count == 0)
+            if (listadoAutores.Count == 0)
             {
                 return NotFound();
             }
 
-            return Ok(listadoEquipo);
+            return Ok(listadoAutores);
         }
 
         //Método para buscar por ID
