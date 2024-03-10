@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace PARCIAL1A.Models
 {
