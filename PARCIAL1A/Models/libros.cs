@@ -27,7 +27,7 @@ namespace PARCIAL1A.Models
         public int id_posts { get; set; }
         public string? titulo_posts { get; set; }
         public string? contenido { get; set; }
-        public DateTime fecha_publicaacion { get; set; }
+        public DateTime fecha_publicacion { get; set; }
         public int id_autores { get; set; }
 
 
