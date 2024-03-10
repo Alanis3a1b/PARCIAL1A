@@ -12,14 +12,17 @@ builder.Services.AddDbContext<librosContext>(options =>
          options.UseSqlServer(
              builder.Configuration.GetConnectionString("equiposDbConnection")
              ));
+
 builder.Services.AddDbContext<autoresContext>(options =>
          options.UseSqlServer(
              builder.Configuration.GetConnectionString("equiposDbConnection")
              ));
+
 builder.Services.AddDbContext<autorLibroContext>(options =>
          options.UseSqlServer(
              builder.Configuration.GetConnectionString("equiposDbConnection")
              ));
+
 builder.Services.AddDbContext<postsContext>(options =>
          options.UseSqlServer(
              builder.Configuration.GetConnectionString("equiposDbConnection")

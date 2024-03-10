@@ -9,9 +9,9 @@ namespace PARCIAL1A.Controllers
     [ApiController]
     public class autoresLibroController : ControllerBase
     {
-        private readonly autorLibroContext _autorLibroContext;
+        private readonly librosContext _autorLibroContext;
 
-        public autoresLibroController(autorLibroContext autorLibroContext)
+        public autoresLibroController(librosContext autorLibroContext)
         {
             _autorLibroContext = autorLibroContext;
         }
@@ -50,6 +50,34 @@ namespace PARCIAL1A.Controllers
             }
 
             return Ok(autor_libro);
+        }
+
+        /*Busqueda de libros al ingresar el nombre del autor*/
+        [HttpGet]
+        [Route("Find/{nombre}")]
+
+        public IActionResult Get(String nombre)
+        {
+            var listadoEquipo = (from e in _autorLibroContext.autor_libro
+                                 join a in _autorLibroContext.autores
+                                        on e.id_autores equals a.id_autores
+                                 join l in _autorLibroContext.libros
+                                        on e.id_libros equals l.id_libros
+                                 where a.nombre_autores.Contains(nombre)
+                                 select new
+                                 {
+                                     e.id_autores,
+                                     nombre = a.nombre_autores,
+                                     libro = l.titulo_libros
+
+                                 }).ToList();
+
+            if (listadoEquipo.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(listadoEquipo);
         }
 
         /*Método para crear o insertar registros*/
